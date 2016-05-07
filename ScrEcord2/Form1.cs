@@ -45,6 +45,9 @@ namespace ScrEcord2
         {
             InitializeComponent();
 
+            this.TopMost = true;
+
+
             CheckINI();
             Reset();
         }
@@ -67,7 +70,6 @@ namespace ScrEcord2
             this.Location = CurrentDisplayRect.Location;
             this.Opacity = 0.5f;
             this.BackColor = Color.FromArgb(255, 30, 30, 30);
-            this.TopMost = true;
             this.Refresh();
 
             if (isHide) this.Hide();
