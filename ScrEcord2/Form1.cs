@@ -77,6 +77,7 @@ namespace ScrEcord2
 
             //変数の初期化
             isClick = false;
+            firstPoint = new Point(0, 0);
         }
 
         /// <summary>
@@ -112,8 +113,12 @@ namespace ScrEcord2
             {
                 isClick = true;
                 pictureBox1.Location = PointToClient(Cursor.Position);
+
+                firstPoint = Cursor.Position;
             }
         }
+
+        Point firstPoint = new Point();
 
         /// <summary>
         /// マウスアップ時の処理、isClickの初期化とキャプチャ処理の開始
@@ -155,9 +160,19 @@ namespace ScrEcord2
         {
             if (isClick)
             {
-                pictureBox1.Size = new Size(
+                if (Cursor.Position.X > firstPoint.X && Cursor.Position.Y > firstPoint.Y)
+                {
+                    pictureBox1.Size = new Size(
                     PointToClient(Cursor.Position).X - pictureBox1.Location.X,
                     PointToClient(Cursor.Position).Y - pictureBox1.Location.Y);
+                }
+                if (Cursor.Position.X < firstPoint.X || Cursor.Position.Y < firstPoint.Y)
+                {
+                    pictureBox1.Location = new Point(PointToClient(Cursor.Position).X, PointToClient(Cursor.Position).Y);
+                    pictureBox1.Size = new Size(
+                        Math.Abs(pictureBox1.Location.X - PointToClient(firstPoint).X),
+                        Math.Abs(pictureBox1.Location.Y - PointToClient(firstPoint).Y));
+                }
             }
         }
 
