@@ -205,12 +205,12 @@ namespace ScrEcord2
                 if (settings["SplitDirectory"] == "false")
                 {
                     if (!System.IO.Directory.Exists($"{settings["FilePath"]}")) System.IO.Directory.CreateDirectory($"{settings["FilePath"]}");
-                    bmp.Save($"{settings["FilePath"]}\\{nowTime.ToString("yyyyMMdd_hhmmss")}.{settings["FileType"]}");
+                    bmp.Save($"{settings["FilePath"]}\\{nowTime.ToString("yyyyMMdd_HHmmss")}.{settings["FileType"]}");
                 }
                 else
                 {
                     if (!System.IO.Directory.Exists($"{settings["FilePath"]}\\{nowTime.ToString("yyyy-MM")}")) System.IO.Directory.CreateDirectory($"{settings["FilePath"]}\\{nowTime.ToString("yyyy-MM")}");
-                    bmp.Save($"{settings["FilePath"]}\\{nowTime.ToString("yyyy-MM")}\\{nowTime.ToString("yyyyMMdd_hhmmss")}.{settings["FileType"]}");
+                    bmp.Save($"{settings["FilePath"]}\\{nowTime.ToString("yyyy-MM")}\\{nowTime.ToString("yyyyMMdd_HHmmss")}.{settings["FileType"]}");
                 }
             }
 
