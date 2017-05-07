@@ -143,7 +143,7 @@ namespace ScrEcord2
                 Reset();
 
                 //クリップボード転送 or エクスプローラを開く
-                if (settings["clipboard"] == "true") Clipboard.SetText(settings["FilePath"]);
+                if (settings["clipboard"] == "true") Clipboard.SetText(savedPath);
 
                 if (settings["explore"] == "true") System.Diagnostics.Process.Start(savedPath);
 
@@ -218,9 +218,10 @@ namespace ScrEcord2
                     bmp.Save(savedPath);
 
                 }
+                return System.IO.Path.GetDirectoryName(savedPath);
             }
 
-            return System.IO.Path.GetDirectoryName(savedPath);
+            return savedPath;
         }
 
         /// <summary>
