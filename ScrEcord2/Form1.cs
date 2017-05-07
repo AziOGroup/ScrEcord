@@ -139,13 +139,13 @@ namespace ScrEcord2
                 }
 
                 //保存処理↓
-                CaptureScreen();
+                string savedPath = CaptureScreen();
                 Reset();
 
                 //クリップボード転送 or エクスプローラを開く
                 if (settings["clipboard"] == "true") Clipboard.SetText(settings["FilePath"]);
 
-                if (settings["explore"] == "true") System.Diagnostics.Process.Start(settings["FilePath"]);
+                if (settings["explore"] == "true") System.Diagnostics.Process.Start(savedPath);
 
 
             }
@@ -179,10 +179,11 @@ namespace ScrEcord2
         /// <summary>
         /// 現在のPictureBoxの状態をもとに画面キャプチャを行います
         /// </summary>
-        private void CaptureScreen()
+        private string CaptureScreen()
         {
             //サイズが0の場合はreturn
-            if (pictureBox1.Width <= 0 || pictureBox1.Height <= 0) return;
+            string savedPath = "";
+            if (pictureBox1.Width <= 0 || pictureBox1.Height <= 0) return savedPath;
 
             //出力処理
             Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -205,16 +206,21 @@ namespace ScrEcord2
                 if (settings["SplitDirectory"] == "false")
                 {
                     if (!System.IO.Directory.Exists($"{settings["FilePath"]}")) System.IO.Directory.CreateDirectory($"{settings["FilePath"]}");
-                    bmp.Save($"{settings["FilePath"]}\\{nowTime.ToString("yyyyMMdd_HHmmss")}.{settings["FileType"]}");
+
+                    savedPath = $"{settings["FilePath"]}\\{nowTime.ToString("yyyyMMdd_HHmmss")}.{settings["FileType"]}";
+                    bmp.Save(savedPath);
                 }
                 else
                 {
                     if (!System.IO.Directory.Exists($"{settings["FilePath"]}\\{nowTime.ToString("yyyy-MM")}")) System.IO.Directory.CreateDirectory($"{settings["FilePath"]}\\{nowTime.ToString("yyyy-MM")}");
-                    bmp.Save($"{settings["FilePath"]}\\{nowTime.ToString("yyyy-MM")}\\{nowTime.ToString("yyyyMMdd_HHmmss")}.{settings["FileType"]}");
+
+                    savedPath = $"{settings["FilePath"]}\\{nowTime.ToString("yyyy-MM")}\\{nowTime.ToString("yyyyMMdd_HHmmss")}.{settings["FileType"]}";
+                    bmp.Save(savedPath);
+
                 }
             }
 
-
+            return System.IO.Path.GetDirectoryName(savedPath);
         }
 
         /// <summary>
