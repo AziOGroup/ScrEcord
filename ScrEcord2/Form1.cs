@@ -141,11 +141,13 @@ namespace ScrEcord2
                 //保存処理↓
                 string savedPath = CaptureScreen();
                 Reset();
+                if (System.IO.Directory.Exists(savedPath))
+                {
+                    //クリップボード転送 or エクスプローラを開く
+                    if (settings["clipboard"] == "true") Clipboard.SetText(savedPath);
 
-                //クリップボード転送 or エクスプローラを開く
-                if (settings["clipboard"] == "true") Clipboard.SetText(savedPath);
-
-                if (settings["explore"] == "true") System.Diagnostics.Process.Start(savedPath);
+                    if (settings["explore"] == "true") System.Diagnostics.Process.Start(savedPath);
+                }
 
 
             }
