@@ -32,11 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.環境設定SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.終了EToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.moveTimer = new System.Windows.Forms.Timer(this.components);
             this.keyboardHook1 = new HongliangSoft.Utilities.Gui.KeyboardHook();
-            this.環境設定SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -55,12 +55,19 @@
             this.環境設定SToolStripMenuItem,
             this.終了EToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 48);
+            // 
+            // 環境設定SToolStripMenuItem
+            // 
+            this.環境設定SToolStripMenuItem.Name = "環境設定SToolStripMenuItem";
+            this.環境設定SToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.環境設定SToolStripMenuItem.Text = "環境設定(&S)";
+            this.環境設定SToolStripMenuItem.Click += new System.EventHandler(this.環境設定SToolStripMenuItem_Click);
             // 
             // 終了EToolStripMenuItem
             // 
             this.終了EToolStripMenuItem.Name = "終了EToolStripMenuItem";
-            this.終了EToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.終了EToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.終了EToolStripMenuItem.Text = "終了(&E)";
             this.終了EToolStripMenuItem.Click += new System.EventHandler(this.終了EToolStripMenuItem_Click);
             // 
@@ -81,13 +88,6 @@
             // keyboardHook1
             // 
             this.keyboardHook1.KeyboardHooked += new HongliangSoft.Utilities.Gui.KeyboardHookedEventHandler(this.keyboardHook1_KeyboardHooked);
-            // 
-            // 環境設定SToolStripMenuItem
-            // 
-            this.環境設定SToolStripMenuItem.Name = "環境設定SToolStripMenuItem";
-            this.環境設定SToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.環境設定SToolStripMenuItem.Text = "環境設定(&S)";
-            this.環境設定SToolStripMenuItem.Click += new System.EventHandler(this.環境設定SToolStripMenuItem_Click);
             // 
             // Form1
             // 

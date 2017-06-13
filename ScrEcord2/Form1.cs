@@ -30,6 +30,7 @@ namespace ScrEcord2
         {
             get
             {
+                
                 return Screen.FromPoint(DisplayCursor).Bounds;
             }
         }
@@ -46,7 +47,7 @@ namespace ScrEcord2
             InitializeComponent();
 
             this.TopMost = true;
-
+            this.AutoScaleMode = AutoScaleMode.Dpi;
 
             CheckINI();
             Reset();
@@ -198,7 +199,6 @@ namespace ScrEcord2
             grp.Dispose();
 
             Reset();
-
 
             //保存処理
             if (MessageBox.Show($"保存しますか？", "確認", MessageBoxButtons.YesNo) == DialogResult.Yes)
