@@ -27,7 +27,7 @@ namespace ScrEcord2
             if (settings["clipboard"] == "true") clipboardCheckbox.CheckState = CheckState.Checked;
             if (settings["explore"] == "true") exploreCheckbox.CheckState = CheckState.Checked;
             if (settings["SplitDirectory"] == "false") splitCheckbox.CheckState = CheckState.Unchecked;
-
+            if (settings["override"] == "true") overrideCheckbox.CheckState = CheckState.Checked;
         }
 
         private void saveCloseButton_Click(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace ScrEcord2
             settings["clipboard"] = clipboardCheckbox.Checked ? "true" : "false";
             settings["explore"] = exploreCheckbox.Checked ? "true" : "false";
             settings["SplitDirectory"] = splitCheckbox.Checked ? "true" : "false";
-
+            settings["override"] = overrideCheckbox.Checked ? "true" : "false";
             Close();
         }
 

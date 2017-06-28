@@ -38,6 +38,7 @@
             this.clipboardCheckbox = new System.Windows.Forms.CheckBox();
             this.exploreCheckbox = new System.Windows.Forms.CheckBox();
             this.splitCheckbox = new System.Windows.Forms.CheckBox();
+            this.overrideCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // browseTextbox
@@ -123,7 +124,7 @@
             // exploreCheckbox
             // 
             this.exploreCheckbox.AutoSize = true;
-            this.exploreCheckbox.Location = new System.Drawing.Point(81, 144);
+            this.exploreCheckbox.Location = new System.Drawing.Point(81, 128);
             this.exploreCheckbox.Name = "exploreCheckbox";
             this.exploreCheckbox.Size = new System.Drawing.Size(155, 16);
             this.exploreCheckbox.TabIndex = 8;
@@ -136,7 +137,7 @@
             this.splitCheckbox.AutoSize = true;
             this.splitCheckbox.Checked = true;
             this.splitCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.splitCheckbox.Location = new System.Drawing.Point(81, 179);
+            this.splitCheckbox.Location = new System.Drawing.Point(81, 150);
             this.splitCheckbox.Name = "splitCheckbox";
             this.splitCheckbox.Size = new System.Drawing.Size(142, 16);
             this.splitCheckbox.TabIndex = 9;
@@ -144,11 +145,22 @@
             this.splitCheckbox.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.splitCheckbox.UseVisualStyleBackColor = true;
             // 
+            // overrideCheckbox
+            // 
+            this.overrideCheckbox.AutoSize = true;
+            this.overrideCheckbox.Location = new System.Drawing.Point(81, 172);
+            this.overrideCheckbox.Name = "overrideCheckbox";
+            this.overrideCheckbox.Size = new System.Drawing.Size(226, 16);
+            this.overrideCheckbox.TabIndex = 10;
+            this.overrideCheckbox.Text = "PrintScreenの既存の挙動をキャンセルする";
+            this.overrideCheckbox.UseVisualStyleBackColor = true;
+            // 
             // Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 261);
+            this.Controls.Add(this.overrideCheckbox);
             this.Controls.Add(this.splitCheckbox);
             this.Controls.Add(this.exploreCheckbox);
             this.Controls.Add(this.clipboardCheckbox);
@@ -180,5 +192,6 @@
         private System.Windows.Forms.CheckBox clipboardCheckbox;
         private System.Windows.Forms.CheckBox exploreCheckbox;
         private System.Windows.Forms.CheckBox splitCheckbox;
+        private System.Windows.Forms.CheckBox overrideCheckbox;
     }
 }

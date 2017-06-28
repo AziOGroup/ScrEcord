@@ -62,11 +62,11 @@ namespace ScrEcord2
                         case 0:
                             break;
                         case 1:
-                            INIData.Add(splitStr[0], "");
+                            INIData.Add(splitStr[0].ToLower(), "");
                             break;
                         case 2:
                         case 3:
-                            INIData.Add(splitStr[0], splitStr[1]);
+                            INIData.Add(splitStr[0].ToLower(), splitStr[1]);
                             break;
                         default:
                             break;
@@ -88,14 +88,14 @@ namespace ScrEcord2
             {
                 //INIData.Add(keyName.ToString(), value.ToString());
 
-                INIData[keyName.ToString()] = value.ToString();
+                INIData[keyName.ToString().ToLower()] = value.ToString();
                 Save();
             }
             get
             {
-                if (INIData.ContainsKey(keyName.ToString()))
+                if (INIData.ContainsKey(keyName.ToString().ToLower()))
                 {
-                    return INIData[keyName.ToString()];
+                    return INIData[keyName.ToString().ToLower()];
                 }
 
                 return "";
@@ -114,7 +114,7 @@ namespace ScrEcord2
 
                 foreach (var item in INIData)
                 {
-                    sw.WriteLine($"{item.Key}={item.Value}");
+                    sw.WriteLine($"{item.Key.ToLower()}={item.Value}");
                 }
 
                 sw.Close();
@@ -133,7 +133,7 @@ namespace ScrEcord2
         /// <returns>正常に終了した場合true, 失敗した場合falseを返します</returns>
         public bool Remove(string keyName)
         {
-            bool result = INIData.Remove(keyName);
+            bool result = INIData.Remove(keyName.ToLower());
             Save();
 
             return result;

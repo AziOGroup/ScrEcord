@@ -96,9 +96,14 @@ namespace ScrEcord2
                 settings["FilePath"] = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyPictures)}\\ScrEcord";
             }
 
-            if (!settings.INIData.ContainsKey(""))
+            if (!settings.INIData.ContainsKey("SpritDirectory"))
             {
                 settings["SplitDirectory"] = "true";
+            }
+
+            if (!settings.INIData.ContainsKey("override"))
+            {
+                settings["override"] = "false";
             }
 
         }
@@ -235,6 +240,7 @@ namespace ScrEcord2
         {
             if (e.KeyCode == Keys.PrintScreen)
             {
+                if (settings["override"] == "true") e.Cancel = true;
                 Reset(false);
                 this.Show();
             }
