@@ -59,6 +59,9 @@ namespace ScrEcord2
         /// <param name="isHide">falseを渡した場合ウィンドウを隠しません</param>
         private void Reset(bool isHide = true)
         {
+            //まず隠す
+            if (isHide) this.Hide();
+
             //PictureBoxの初期化
             pictureBox1.BackColor = Color.Pink;
             pictureBox1.Size = new Size(0, 0);
@@ -72,9 +75,6 @@ namespace ScrEcord2
             this.Opacity = 0.5f;
             this.BackColor = Color.FromArgb(255, 30, 30, 30);
             this.Refresh();
-
-            if (isHide) this.Hide();
-
 
             //変数の初期化
             isClick = false;
@@ -238,16 +238,19 @@ namespace ScrEcord2
         /// <param name="e"></param>
         private void keyboardHook1_KeyboardHooked(object sender, HongliangSoft.Utilities.Gui.KeyboardHookedEventArgs e)
         {
-            if (e.KeyCode == Keys.PrintScreen)
+            if (!stopKeyHook)
             {
-                if (settings["override"] == "true") e.Cancel = true;
-                Reset(false);
-                this.Show();
-            }
+                if (e.KeyCode == Keys.PrintScreen)
+                {
+                    if (settings["override"] == "true") e.Cancel = true;
+                    Reset(false);
+                    this.Show();
+                }
 
-            if (e.KeyCode == Keys.Escape)
-            {
-                Reset();
+                if (e.KeyCode == Keys.Escape)
+                {
+                    Reset();
+                }
             }
         }
 
@@ -290,6 +293,13 @@ namespace ScrEcord2
 
             //設定ファイルの見直し
             settings = new INIControl("Settings.ini");
+        }
+
+        private bool stopKeyHook { get; set; } = false;
+        private void 一時的に無効化するToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stopKeyHook = !stopKeyHook;
+            一時的に無効化するToolStripMenuItem.Checked = stopKeyHook;
         }
     }
 }

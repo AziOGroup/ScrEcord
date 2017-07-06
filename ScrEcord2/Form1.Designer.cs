@@ -37,6 +37,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.moveTimer = new System.Windows.Forms.Timer(this.components);
             this.keyboardHook1 = new HongliangSoft.Utilities.Gui.KeyboardHook();
+            this.一時的に無効化するToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,21 +55,23 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.環境設定SToolStripMenuItem,
+            this.一時的に無効化するToolStripMenuItem,
+            this.toolStripSeparator1,
             this.終了EToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 98);
             // 
             // 環境設定SToolStripMenuItem
             // 
             this.環境設定SToolStripMenuItem.Name = "環境設定SToolStripMenuItem";
-            this.環境設定SToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.環境設定SToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.環境設定SToolStripMenuItem.Text = "環境設定(&S)";
             this.環境設定SToolStripMenuItem.Click += new System.EventHandler(this.環境設定SToolStripMenuItem_Click);
             // 
             // 終了EToolStripMenuItem
             // 
             this.終了EToolStripMenuItem.Name = "終了EToolStripMenuItem";
-            this.終了EToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.終了EToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.終了EToolStripMenuItem.Text = "終了(&E)";
             this.終了EToolStripMenuItem.Click += new System.EventHandler(this.終了EToolStripMenuItem_Click);
             // 
@@ -88,6 +92,18 @@
             // keyboardHook1
             // 
             this.keyboardHook1.KeyboardHooked += new HongliangSoft.Utilities.Gui.KeyboardHookedEventHandler(this.keyboardHook1_KeyboardHooked);
+            // 
+            // 一時的に無効化するToolStripMenuItem
+            // 
+            this.一時的に無効化するToolStripMenuItem.Name = "一時的に無効化するToolStripMenuItem";
+            this.一時的に無効化するToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.一時的に無効化するToolStripMenuItem.Text = "一時的に無効化する";
+            this.一時的に無効化するToolStripMenuItem.Click += new System.EventHandler(this.一時的に無効化するToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
             // 
             // Form1
             // 
@@ -119,6 +135,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 終了EToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 環境設定SToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 一時的に無効化するToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 
